@@ -1,0 +1,35 @@
+{
+  "tests": [
+    {
+      "name": "Test landing generation with valid data",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "theme": "Доставка пиццы",
+        "geo": "Москва",
+        "domain": "pizza-moscow.ru"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "landing_id": "number",
+        "domain": "string",
+        "preview_url": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Test missing parameters",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "theme": "Test"
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

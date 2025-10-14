@@ -1,0 +1,28 @@
+{
+  "tests": [
+    {
+      "name": "Test get landing with valid domain",
+      "method": "GET",
+      "path": "/?domain=test-domain.ru",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "id": "number",
+        "domain": "string",
+        "theme": "string",
+        "geo": "string",
+        "html_content": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Test missing domain parameter",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "tests": [
+    {
+      "name": "Test form submission with valid data",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "landing_id": 1,
+        "name": "Иван Иванов",
+        "email": "ivan@example.com",
+        "phone": "+7 900 123 45 67",
+        "message": "Хочу заказать"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "submission_id": "number"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Test missing required fields",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "landing_id": 1
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
